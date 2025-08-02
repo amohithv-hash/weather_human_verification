@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human Verification</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: red;
+      margin-bottom: 40px;
+    }
+
+    .task {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      background-color: #222;
+      border: 2px solid #0f0;
+      color: #0f0;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0f0;
+      color: #000;
+    }
+
+    .output {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Human Verification</h1>
+  <h2>We are always watching.</h2>
+
+  <div class="task">Please touch the screen with your nose to continue.</div>
+  
+  <button onclick="verify()">Enter</button>
+
+  <div class="output" id="result">That's exactly what a bot would do.</div>
+
+  <script>
+    function verify() {
+      document.getElementById("result").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

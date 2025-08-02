@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Totally Not Your Weather</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #d0f0ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #09ec32;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #f10505;
+      color: rgb(233, 215, 17);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .weather-output {
+      margin-top: 20px;
+      text-align: left;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Check the Weather</h2>
+  <input type="text" id="cityInput" placeholder="Enter your city">
+  <button onclick="showFakeWeather()">Get Weather</button>
+
+  <div class="weather-output" id="weatherOutput"></div>
+</div>
+
+<script>
+  const fakeCities = [
+    "Atlantis",
+    "Gotham",
+    "Wakanda",
+    "Raccoon City",
+    "Springfield",
+    "El Dorado",
+    "Metropolis",
+    "Silent Hill",
+    "Zion",
+    "Mordor"
+  ];
+
+  const fakeWeatherData = [
+    { temp: "41°C", desc: "Scorching heat with dust storms", humidity: "5%", wind: "3 km/h" },
+    { temp: "-15°C", desc: "Blizzard conditions", humidity: "88%", wind: "20 km/h" },
+    { temp: "29°C", desc: "Dry and sunny", humidity: "18%", wind: "10 km/h" },
+    { temp: "12°C", desc: "Foggy with drizzle", humidity: "92%", wind: "7 km/h" },
+    { temp: "34°C", desc: "Hot and humid", humidity: "70%", wind: "5 km/h" },
+    { temp: "0°C", desc: "Light snow and calm winds", humidity: "90%", wind: "4 km/h" },
+    { temp: "22°C", desc: "Partly cloudy", humidity: "55%", wind: "15 km/h" },
+    { temp: "-5°C", desc: "Frozen fog with sleet", humidity: "85%", wind: "9 km/h" },
+    { temp: "19°C", desc: "Mild with passing showers", humidity: "60%", wind: "12 km/h" },
+    { temp: "46°C", desc: "Extreme heat alert", humidity: "10%", wind: "6 km/h" }
+  ];
+
+  function showFakeWeather() {
+    const output = document.getElementById("weatherOutput");
+
+    const city = fakeCities[Math.floor(Math.random() * fakeCities.length)];
+    const weather = fakeWeatherData[Math.floor(Math.random() * fakeWeatherData.length)];
+
+    output.innerHTML = `
+      <div><span class="label">City:</span> ${city}</div>
+      <div><span class="label">Temperature:</span> ${weather.temp}</div>
+      <div><span class="label">Condition:</span> ${weather.desc}</div>
+      <div><span class="label">Humidity:</span> ${weather.humidity}</div>
+      <div><span class="label">Wind:</span> ${weather.wind}</div>
+    `;
+  }
+</script>
+
+</body>
+</html>
+

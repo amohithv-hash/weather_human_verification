@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Human Verification Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ff0000;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .box:hover {
+            transform: scale(1.1);
+        }
+        .selected {
+            border-color: #00ff00;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Non-Human Verification Protocol</h2>
+        <p>Directive: Select all boxes emitting red wavelengths:</p>
+        <div class="grid" id="colorGrid">
+            <div class="box" style="background-color: #FF0000;" data-color="red"></div>
+            <div class="box" style="background-color: #DC143C;" data-color="red"></div>
+            <div class="box" style="background-color: #00FF00;"></div>
+            <div class="box" style="background-color: #FF6347;" data-color="red"></div>
+            <div class="box" style="background-color: #0000FF;"></div>
+            <div class="box" style="background-color: #B22222;" data-color="red"></div>
+            <div class="box" style="background-color: #FFFF00;"></div>
+            <div class="box" style="background-color: #CD5C5C;" data-color="red"></div>
+            <div class="box" style="background-color: #800080;"></div>
+        </div>
+        <button onclick="verify()">Execute Verification</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        const result = document.getElementById('result');
+
+        boxes.forEach(box => {
+            box.addEventListener('click', () => {
+                box.classList.toggle('selected');
+            });
+        });
+
+        function verify() {
+            let correct = true;
+            let selectedCount = 0;
+            let redCount = 0;
+
+            boxes.forEach(box => {
+                const isRed = box.dataset.color === 'red';
+                const isSelected = box.classList.contains('selected');
+
+                if (isRed) {
+                    redCount++;
+                    if (!isSelected) {
+                        correct = false;
+                    }
+                } else if (isSelected) {
+                    correct = false;
+                }
+                if (isSelected) {
+                    selectedCount++;
+                }
+            });
+
+            if (selectedCount === 0) {
+                result.textContent = 'Error: No selections detected. Engage at least one box!';
+                result.style.color = '#ff0000';
+            } else if (correct && selectedCount === redCount) {
+                result.textContent = 'Verification Complete: Red wavelengths correctly identified. Non-human approval granted!';
+                result.style.color = '#00ff00';
+            } else {
+                result.textContent = 'Verification Failed: Incorrect wavelength selection. Only red boxes authorized!';
+                result.style.color = '#ff0000';
+            }
+        }
+    </script>
+</body>
+</html>
