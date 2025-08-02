@@ -1,21 +1,20 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# [Human verification and weather] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Team141]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Mohith v Anil] - [College of Engineering Karunagappally]
+- Member 2: [Farzin Salam VT] - [College of Engineering Karunagappally]
 
 ### Project Description
-[2-3 lines about what your project does]
-
+[human verification : ask users about are you a human or not with funny answers.
+ Weather : It show weather but not the user desires]
 ### The Problem (that doesn't exist)
 [What ridiculous problem are you solving?]
 
@@ -25,10 +24,10 @@
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
+- [Languages used:HTML]
 - [Frameworks used]
 - [Libraries used]
-- [Tools used]
+- [Tools used:Visual Studio]
 
 For Hardware:
 - [List main components]
